@@ -11,15 +11,15 @@ public class StoreTest {
         DigitalVideoDisc dvd2 = new DigitalVideoDisc ("Star Wars", "Science Fiction", "George Lucas", 87, 24.95f);
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
 
-        store.addDVD(dvd1);
-        store.addDVD(dvd2);
-        store.addDVD(dvd3);
+        store.addDisc(dvd1);
+        store.addDisc(dvd2);
+        store.addDisc(dvd3);
 
-        store.removeDVD(dvd1);
+        store.removeDisc(dvd1);
 
         for (int i = 0; i < 10; i++) {
             DigitalVideoDisc dvd = new DigitalVideoDisc("DVD " + (i + 3), "Category " + (i + 3), 15.0f);
-            store.addDVD(dvd);
+            store.addDisc(dvd);
         }
 
         store.print();

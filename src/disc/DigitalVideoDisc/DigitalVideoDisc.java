@@ -72,12 +72,12 @@ public class DigitalVideoDisc {
         return id;
     }
 
-    public boolean isequal(DigitalVideoDisc otherDisc) {
-        if (this.title != otherDisc.title
-        || !Objects.equals(this.category, otherDisc.category)
-        || this.cost != otherDisc.cost
-        || this.director != otherDisc.director
-        || this.length != otherDisc.length) {
+    public boolean isequal(DigitalVideoDisc disc) {
+        if (this.title != disc.title
+        || !Objects.equals(this.category, disc.category)
+        || this.cost != disc.cost
+        || this.director != disc.director
+        || this.length != disc.length) {
             return false;
         }
         else return true;

@@ -16,20 +16,20 @@ public class Cart {
         else System.out.println("Maximum order reached");
     }
 
-//    public void addDigitalVideoDisc(disc.DigitalVideoDisc.DigitalVideoDisc [] dvdList) {
+//    public void addDigitalVideoDisc(disc.DigitalVideoDisc.DigitalVideoDisc [] disc) {
 //        if (dvdList.length + qtyOrdered <  MAX_NUMBERS_ORDERED) {
-//            for (disc.DigitalVideoDisc.DigitalVideoDisc disc: dvdList) {
-//                itemsOrdered[qtyOrdered] = disc;
+//            for (disc.DigitalVideoDisc.DigitalVideoDisc DISC: disc) {
+//                itemsOrdered[qtyOrdered] = DISC;
 //                System.out.println("The disc has been added");
 //                qtyOrdered += 1;
 //            }
 //        }
 //        else System.out.println("Maximum order reached if added");
 //    }
-    public void addDigitalVideoDisc(DigitalVideoDisc... dvdList) {
-        for (DigitalVideoDisc disc : dvdList) {
+    public void addDigitalVideoDisc(DigitalVideoDisc... disc) {
+        for (DigitalVideoDisc DISC : disc) {
             if (qtyOrdered < MAX_NUMBERS_ORDERED) {
-                itemsOrdered[qtyOrdered] = disc;
+                itemsOrdered[qtyOrdered] = DISC;
                 qtyOrdered++;
             } else {
                 System.out.println("Maximum order reached");

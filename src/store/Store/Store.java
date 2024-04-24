@@ -11,18 +11,18 @@ public class Store {
         itemCount = 0;
     }
 
-    public void addDVD(DigitalVideoDisc dvd) {
+    public void addDisc(DigitalVideoDisc disc) {
         if (itemCount < itemsInStore.length) {
-            itemsInStore[itemCount++] = dvd;
+            itemsInStore[itemCount++] = disc;
         } else {
             System.out.println("store.Store.Store is full");
         }
     }
 
-    public void removeDVD(DigitalVideoDisc dvd) {
+    public void removeDisc(DigitalVideoDisc disc) {
         boolean found = false;
         for (int i = 0; i < itemCount; i++) {
-            if (itemsInStore[i].equals(dvd)) {
+            if (itemsInStore[i].equals(disc)) {
                 for (int j = i; j < itemCount - 1; j++) {
                     itemsInStore[j] = itemsInStore[j + 1];
                 }
