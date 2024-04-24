@@ -1,0 +1,19 @@
+2.1 What do you prefer in this case?
+
+- I'd prefer using public void addDigitalVideoDisc(DigitalVideoDisc... dvdList). Reasons:
+    + varargs parameter (...) allows for a more concise and flexible method invocation syntax
+    + it can pass a variable number of arguments directly without having to create an array explicitly
+    + require less code with cleaner method call
+    + varargs provide the flexibility to pass zero or more arguments
+
+3.
+Question: Is JAVA a Pass by Value or a Pass by Reference programming language?
+- Java is pass by value, because even though a variable might hold a reference to an object, that object reference is a value that represents the object's location in memory. Object references are therefore passed by value
+
+Question: After the call of swap(jungleDVD, cinderellaDVD) why does the title of these two
+objects still remain?
+- In this method we pass references to jungleDVD and cinderellaDVD. Inside, we only swapping the references stored in o1 and o2. This only affect the local variable, and doesn't affect original references passed to the method. Therefore title remain unchanged.
+
+Question: After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is
+the title of the JungleDVD changed?
+- Here we pass a referenct to jungleDVD and cinderellaDVD, containing title. We change the titile of DigitalVideoDisc object reference by dvd to the passed title. When creating new DigitalVideoDisc with old title, but this assignment
