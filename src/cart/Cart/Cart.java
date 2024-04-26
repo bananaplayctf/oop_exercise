@@ -16,9 +16,9 @@ public class Cart {
         else System.out.println("Maximum order reached");
     }
 
-//    public void addDigitalVideoDisc(disc.DigitalVideoDisc.DigitalVideoDisc [] disc) {
-//        if (dvdList.length + qtyOrdered <  MAX_NUMBERS_ORDERED) {
-//            for (disc.DigitalVideoDisc.DigitalVideoDisc DISC: disc) {
+//    public void addDigitalVideoDisc(DigitalVideoDisc [] disc) {
+//        if (disc.length + qtyOrdered <  MAX_NUMBERS_ORDERED) {
+//            for (DigitalVideoDisc DISC: disc) {
 //                itemsOrdered[qtyOrdered] = DISC;
 //                System.out.println("The disc has been added");
 //                qtyOrdered += 1;
@@ -26,16 +26,26 @@ public class Cart {
 //        }
 //        else System.out.println("Maximum order reached if added");
 //    }
-    public void addDigitalVideoDisc(DigitalVideoDisc... disc) {
-        for (DigitalVideoDisc DISC : disc) {
-            if (qtyOrdered < MAX_NUMBERS_ORDERED) {
-                itemsOrdered[qtyOrdered] = DISC;
-                qtyOrdered++;
-            } else {
-                System.out.println("Maximum order reached");
-                break;
-            }
+//    public void addDigitalVideoDisc(DigitalVideoDisc... disc) {
+//        for (DigitalVideoDisc DISC : disc) {
+//            if (qtyOrdered < MAX_NUMBERS_ORDERED) {
+//                itemsOrdered[qtyOrdered] = DISC;
+//                qtyOrdered++;
+//            } else {
+//                System.out.println("Maximum order reached");
+//                break;
+//            }
+//        }
+//    }
+
+    public void addDigitalVideoDisc(DigitalVideoDisc disc1, DigitalVideoDisc disc2) {
+        if (qtyOrdered + 2 <= MAX_NUMBERS_ORDERED) {
+            itemsOrdered[qtyOrdered] = disc1;
+            qtyOrdered += 1;
+            itemsOrdered[qtyOrdered] = disc2;
+            qtyOrdered += 1;
         }
+        else System.out.println("Maximum order reached");
     }
     
     public void removeDigitalVideoDisc(DigitalVideoDisc disc) {

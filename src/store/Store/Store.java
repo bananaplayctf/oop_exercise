@@ -15,7 +15,7 @@ public class Store {
         if (itemCount < itemsInStore.length) {
             itemsInStore[itemCount++] = disc;
         } else {
-            System.out.println("store.Store.Store is full");
+            System.out.println("Store is full");
         }
     }
 

@@ -16,4 +16,4 @@ objects still remain?
 
 Question: After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is
 the title of the JungleDVD changed?
-- Here we pass a referenct to jungleDVD and cinderellaDVD, containing title. We change the titile of DigitalVideoDisc object reference by dvd to the passed title. When creating new DigitalVideoDisc with old title, but this assignment
+- Here we pass a reference to jungleDVD and cinderellaDVD, containing title. We change the title of DigitalVideoDisc object reference by dvd to the passed title. When creating new DigitalVideoDisc with old title, we use "dvd = new DigitalVideoDisc(oldTitle)"" to pass a new reference to a new object with updated title, therefore the title change.
