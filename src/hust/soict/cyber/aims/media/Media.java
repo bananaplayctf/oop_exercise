@@ -7,6 +7,7 @@ public abstract class Media {
     private float cost;
 
     public Media() {
+
     }
 
     public Media(int id, String title, String category, float cost) {
