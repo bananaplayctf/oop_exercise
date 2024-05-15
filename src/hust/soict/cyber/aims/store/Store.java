@@ -1,6 +1,6 @@
-package store.Store;
+package hust.soict.cyber.aims.store;
 
-import disc.DigitalVideoDisc.DigitalVideoDisc;
+import hust.soict.cyber.aims.disc.DigitalVideoDisc;
 
 public class Store {
     private DigitalVideoDisc[] itemsInStore;
@@ -33,7 +33,7 @@ public class Store {
             }
         }
         if (!found) {
-            System.out.println("DVD not found in the store");
+            System.out.println("DVD not found in the hust.soict.dsai.store");
         }
     }
 

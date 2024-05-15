@@ -1,4 +1,4 @@
-package disc.DigitalVideoDisc;
+package hust.soict.cyber.aims.disc;
 
 import java.util.Objects;
 

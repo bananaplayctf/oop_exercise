@@ -1,7 +1,7 @@
-package cart.Cart;
+package hust.soict.cyber.aims.cart;
 
 
-import disc.DigitalVideoDisc.DigitalVideoDisc;
+import hust.soict.cyber.aims.disc.DigitalVideoDisc;
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
@@ -16,18 +16,18 @@ public class Cart {
         else System.out.println("Maximum order reached");
     }
 
-//    public void addDigitalVideoDisc(DigitalVideoDisc [] disc) {
-//        if (disc.length + qtyOrdered <  MAX_NUMBERS_ORDERED) {
-//            for (DigitalVideoDisc DISC: disc) {
+//    public void addDigitalVideoDisc(DigitalVideoDisc [] hust.soict.dsai.store.disc) {
+//        if (hust.soict.dsai.store.disc.length + qtyOrdered <  MAX_NUMBERS_ORDERED) {
+//            for (DigitalVideoDisc DISC: hust.soict.dsai.store.disc) {
 //                itemsOrdered[qtyOrdered] = DISC;
-//                System.out.println("The disc has been added");
+//                System.out.println("The hust.soict.dsai.store.disc has been added");
 //                qtyOrdered += 1;
 //            }
 //        }
 //        else System.out.println("Maximum order reached if added");
 //    }
-//    public void addDigitalVideoDisc(DigitalVideoDisc... disc) {
-//        for (DigitalVideoDisc DISC : disc) {
+//    public void addDigitalVideoDisc(DigitalVideoDisc... hust.soict.dsai.store.disc) {
+//        for (DigitalVideoDisc DISC : hust.soict.dsai.store.disc) {
 //            if (qtyOrdered < MAX_NUMBERS_ORDERED) {
 //                itemsOrdered[qtyOrdered] = DISC;
 //                qtyOrdered++;

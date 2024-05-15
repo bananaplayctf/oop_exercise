@@ -1,6 +1,6 @@
-package disc.TestPassingParameter;
+package hust.soict.cyber.test.disc;
 
-import disc.DigitalVideoDisc.DigitalVideoDisc;
+import hust.soict.cyber.aims.disc.DigitalVideoDisc;
 
 public class TestingPassingParameter {
     public static void main(String[] args) {
