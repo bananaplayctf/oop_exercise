@@ -1,7 +1,7 @@
 package hust.soict.cyber.test.store;
 
 import hust.soict.cyber.aims.store.Store;
-import hust.soict.cyber.aims.disc.DigitalVideoDisc;
+import hust.soict.cyber.aims.media.DigitalVideoDisc;
 
 public class StoreTest {
     public static void main(String[] args) {

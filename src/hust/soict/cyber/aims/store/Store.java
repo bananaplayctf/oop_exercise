@@ -1,6 +1,6 @@
 package hust.soict.cyber.aims.store;
 
-import hust.soict.cyber.aims.disc.DigitalVideoDisc;
+import hust.soict.cyber.aims.media.DigitalVideoDisc;
 
 public class Store {
     private DigitalVideoDisc[] itemsInStore;

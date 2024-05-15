@@ -1,4 +1,4 @@
-package hust.soict.cyber.aims.disc;
+package hust.soict.cyber.aims.media;
 
 import java.util.Objects;
 
@@ -112,12 +112,38 @@ public class DigitalVideoDisc extends Media {
     private String director;
     private int length;
 
+    private int id;
+    private static int nbDigitalVideoDiscs = 0;
+
     public String getDirector() {
         return director;
     }
 
     public void setDirector(String director) {
         this.director = director;
+    }
+
+    public DigitalVideoDisc(String title) {
+        super(nbDigitalVideoDiscs, title, "", 0.0f);
+        nbDigitalVideoDiscs++;
+    }
+
+    public DigitalVideoDisc(String title, String category, float cost) {
+        super(nbDigitalVideoDiscs, title, category, cost);
+        nbDigitalVideoDiscs++;
+    }
+
+    public DigitalVideoDisc(String title, String category, String director, float cost) {
+        super(nbDigitalVideoDiscs, title, category, cost);
+        this.director = director;
+        nbDigitalVideoDiscs++;
+    }
+
+    public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
+        super(nbDigitalVideoDiscs, title, category, cost);
+        this.director = director;
+        this.length = length;
+        nbDigitalVideoDiscs++;
     }
 
     public int getLength() {
