@@ -1,51 +1,29 @@
 package hust.soict.cyber.aims.store;
 
-import hust.soict.cyber.aims.media.DigitalVideoDisc;
+import hust.soict.cyber.aims.media.Media;
+import java.util.ArrayList;
 
 public class Store {
-    private DigitalVideoDisc[] itemsInStore;
-    private int itemCount;
-
-    public Store(int capacity) {
-        itemsInStore = new DigitalVideoDisc[capacity];
-        itemCount = 0;
+    private ArrayList<Media> itemsInStore = new ArrayList<>();
+    public void addMedia(Media media) {
+        itemsInStore.add(media);
+        System.out.println("Added: " + media.getTitle());
     }
 
-    public void addDisc(DigitalVideoDisc disc) {
-        if (itemCount < itemsInStore.length) {
-            itemsInStore[itemCount++] = disc;
+    public void removeMedia(Media media) {
+        if (itemsInStore.remove(media)) {
+            System.out.println("Removed: " + media.getTitle());
         } else {
-            System.out.println("Store is full");
-        }
-    }
-
-    public void removeDisc(DigitalVideoDisc disc) {
-        boolean found = false;
-        for (int i = 0; i < itemCount; i++) {
-            if (itemsInStore[i].equals(disc)) {
-                for (int j = i; j < itemCount - 1; j++) {
-                    itemsInStore[j] = itemsInStore[j + 1];
-                }
-                itemsInStore[itemCount - 1] = null;
-                itemCount--;
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            System.out.println("DVD not found in the hust.soict.dsai.store");
+            System.out.println("Media item not found in the store");
         }
     }
 
     public void print() {
         System.out.println("***********************STORE***********************");
-        float totalCost = 0;
-        for (int i = 0; i < itemCount; i++) {
-            DigitalVideoDisc disc = itemsInStore[i];
-            System.out.println((i + 1) + ". " + disc.toString()); // Using toString() method
-            totalCost += disc.getCost();
+        for (int i = 0; i < itemsInStore.size(); i++) {
+            Media media = itemsInStore.get(i);
+            System.out.println((i + 1) + ". " + media.toString()); // Using toString() method
         }
-        System.out.println("Total cost: " + totalCost);
         System.out.println("****************************************************");
     }
 }
