@@ -170,9 +170,7 @@ import java.util.Objects;
 
 
 public class DigitalVideoDisc extends Disc implements Playable{
-    private int id;
     private static int nbDigitalVideoDiscs = 0;
-
 
     public DigitalVideoDisc(String title) {
         super(nbDigitalVideoDiscs, title, "", 0.0f, 0, "");
