@@ -22,4 +22,19 @@ public class Track implements Playable{
         System.out.println("Track length: " + this.getLength());
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Track track = (Track) o;
+        if (length != track.length) return false;
+        return title.equals(track.title);
+    }
+
+    @Override
+    public String toString() {
+        return "Track: Title: " + title + ", Length: " + length;
+    }
 }

@@ -106,4 +106,10 @@ public class Book extends Media {
             System.out.println("Author not found.");
         }
     }
+
+    @Override
+    public String toString() {
+        return "Book info:\nID: " + getId() + ", Title: " + getTitle() + ", Category: " + getCategory() +
+                ", Cost: " + getCost() + ", Authors: " + String.join(", ", authors);
+    }
 }

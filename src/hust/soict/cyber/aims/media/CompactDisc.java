@@ -10,6 +10,7 @@ public class CompactDisc extends Disc implements Playable{
     // Constructor
     public CompactDisc(int id, String title, String category, float cost, int length, String artist, String director) {
         super(id, title, category, cost, length, director);
+        this.artist = artist;
     }
 
     // Getter for artist
@@ -54,5 +55,16 @@ public class CompactDisc extends Disc implements Playable{
         for (Track track : tracks) {
             track.play();
         }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder tracksInfo = new StringBuilder();
+        for (Track track : tracks) {
+            tracksInfo.append(track.toString()).append("\n");
+        }
+        return "CompactDisc info: \nID: " + getId() + ", Title: " + getTitle() + ", Category: " + getCategory() +
+                ", Cost: " + getCost() + ", Artist: " + getArtist() + ", Director: " + getDirector() +
+                ", Length: " + getLength() + "\nTracks:\n" + tracksInfo.toString();
     }
 }

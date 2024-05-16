@@ -2,6 +2,7 @@ package hust.soict.cyber.aims.store;
 
 import hust.soict.cyber.aims.media.Media;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Store {
     private ArrayList<Media> itemsInStore = new ArrayList<>();
@@ -25,5 +26,18 @@ public class Store {
             System.out.println((i + 1) + ". " + media.toString()); // Using toString() method
         }
         System.out.println("****************************************************");
+    }
+
+    public List<Media> getItemsInStore() {
+        return itemsInStore;
+    }
+
+    public Media findMediaByTitle(String title) {
+        for (Media media : itemsInStore) {
+            if (media.getTitle().equalsIgnoreCase(title)) {
+                return media;
+            }
+        }
+        return null;
     }
 }
