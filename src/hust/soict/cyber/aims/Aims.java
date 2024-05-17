@@ -103,7 +103,6 @@ public class Aims {
         String title = scanner.nextLine();
         Media media = store.findMediaByTitle(title);
         if (media != null) {
-            System.out.println(media);
             if (media instanceof Book book) {
                 System.out.println(book);
             } else if (media instanceof CompactDisc cd) {
