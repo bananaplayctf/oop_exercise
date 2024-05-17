@@ -166,7 +166,7 @@ public class Aims {
         System.out.print("Enter the title of the media: ");
         String title = scanner.nextLine();
         Media media = store.findMediaByTitle(title);
-        if (media != null && media instanceof Playable) {
+        if (media instanceof Playable) {
             ((Playable) media).play();
         } else {
             System.out.println("Media not found or cannot be played!");
@@ -223,7 +223,10 @@ public class Aims {
             media = new Book(nbBook, title, category, cost, authors);
             nbBook++;
         } else if (type.equalsIgnoreCase("CD")) {
-            media = new CompactDisc(nbCD, title, category, cost, 0, "", "");
+            System.out.print("Enter artist: ");
+            String artist = scanner.nextLine();
+            media = new CompactDisc(nbCD, title, category, cost, length, artist, director);
+            ((CompactDisc) media).addTrack(new Track("a new day", 10));
             nbCD++;
         } else if (type.equalsIgnoreCase("DVD")) {
             media = new DigitalVideoDisc(title, category, cost, length, director);
