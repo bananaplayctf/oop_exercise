@@ -1,4 +1,4 @@
-package hust.soict.cyber.aims.screen;
+package hust.soict.cyber.aims.screen.controller;
 
 import hust.soict.cyber.aims.cart.Cart;
 import hust.soict.cyber.aims.media.Media;
@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import java.util.Comparator;
 
 public class CartScreenController {
     private Cart cart;
@@ -113,13 +114,18 @@ public class CartScreenController {
                     filteredData.setPredicate(p -> false);
                 }
             } else if (radioBtnFilterTitle.isSelected()) {
+                // Filter by title
                 filteredData.setPredicate(media -> media.getTitle().toLowerCase().contains(filter.toLowerCase()));
             }
         }
+
+        // Apply sorting by title
+        filteredData.sorted(Comparator.comparing(Media::getTitle));
     }
 
     private void updateTotalCost() {
         float totalCost = cart.totalCost();
         lblTotalCost.setText(String.format("%.2f $", totalCost));
     }
+
 }

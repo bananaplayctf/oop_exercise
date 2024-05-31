@@ -1,6 +1,7 @@
 package hust.soict.cyber.aims.screen;
 
 import hust.soict.cyber.aims.cart.Cart;
+import hust.soict.cyber.aims.screen.controller.CartScreenController;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.fxml.FXMLLoader;
@@ -26,7 +27,7 @@ public class CartScreen extends JFrame {
 
         Platform.runLater(() -> {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/hust/soict/cyber/aims/screen/cart.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/hust/soict/cyber/aims/screen/fxml/cart.fxml"));
                 loader.setController(new CartScreenController(cart));
                 Parent root = loader.load();
                 fxPanel.setScene(new Scene(root));
