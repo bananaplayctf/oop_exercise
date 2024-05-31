@@ -3,18 +3,26 @@ package hust.soict.cyber.aims.screen.controller;
 import hust.soict.cyber.aims.cart.Cart;
 import hust.soict.cyber.aims.media.Media;
 import hust.soict.cyber.aims.media.Playable;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import hust.soict.cyber.aims.store.Store;
 import javafx.collections.ListChangeListener;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.util.Comparator;
 
 public class CartScreenController {
+    private Store store;
     private Cart cart;
+
+    private Stage stage;
 
     @FXML
     private TableView<Media> tblMedia;
@@ -41,8 +49,9 @@ public class CartScreenController {
 
     private FilteredList<Media> filteredData;
 
-    public CartScreenController(Cart cart) {
+    public CartScreenController(Store store, Cart cart) {
         this.cart = cart;
+        this.store = store;
     }
 
     @FXML
@@ -128,4 +137,18 @@ public class CartScreenController {
         lblTotalCost.setText(String.format("%.2f $", totalCost));
     }
 
+    @FXML
+    private void btnViewStorePressed(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/hust/soict/cyber/aims/screen/fxml/store.fxml"));
+            fxmlLoader.setController(new StoreScreenController(store, cart));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Cart");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

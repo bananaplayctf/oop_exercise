@@ -1,27 +1,20 @@
 package hust.soict.cyber.aims.screen;
 
-import hust.soict.cyber.aims.cart.Cart;
 import hust.soict.cyber.aims.media.*;
 
-import hust.soict.cyber.aims.media.Media;
-import hust.soict.cyber.aims.screen.CartScreen;
+import hust.soict.cyber.aims.screen.ui.StoreScreen;
+import hust.soict.cyber.aims.store.Store;
 
 public class Main {
     public static void main(String[] args) {
-        // Create an instance of Cart
-        Cart cart = new Cart(); // You may need to provide constructor parameters if required
-
-        // Create some media items
-        Media book = new Book(1, "Java Programming", "Programming", 19.99f);
-        Media cd = new CompactDisc(2, "Greatest Hits", "Music",  14.99f, 15, "A", "B");
-        Media dvd = new DigitalVideoDisc(3, "Ane Matrix", "Movie", "phamhongquan", 120);
-
-        // Add the media items to the cart
-        cart.addMedia(book);
-        cart.addMedia(cd);
-        cart.addMedia(dvd);
-
-        // Create an instance of CartScreen and pass the Cart instance
-        CartScreen cartScreen = new CartScreen(cart);
+        Store store = new Store();
+        store.addMedia(new DigitalVideoDisc(1, "Harry Potter and the Philosopher's Stone (2001)", "film", 3.0f, 90, "JKRowling"));
+        store.addMedia(new DigitalVideoDisc(2, "Harry Potter and the Chamber of Secrets (2002)", "film", 3.5f, 90, "JKRowling"));
+        store.addMedia(new DigitalVideoDisc(3, "Harry Potter and the Prisoner of Azkaban (2004)", "film", 5.0f, 90, "JKRowling"));
+        store.addMedia(new DigitalVideoDisc(4, "Harry Potter and the Goblet of Fire (2005)", "film", 4.5f, 90, "JKRowling"));
+        store.addMedia(new CompactDisc(5, "Fetch the Bolt Cutters", "pop", 10.39f, 10, "someone", "somebody"));
+        store.addMedia(new CompactDisc(6, "Future Nostalgia", "ballad", 9.6f, 20, "someone", "somebody"));
+        store.addMedia(new Book(7, "The Hunger Games", "book", 5.5f));
+        StoreScreen storeScreen = new StoreScreen(store);
     }
 }

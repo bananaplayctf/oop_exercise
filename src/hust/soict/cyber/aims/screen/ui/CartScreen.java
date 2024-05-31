@@ -1,7 +1,8 @@
-package hust.soict.cyber.aims.screen;
+package hust.soict.cyber.aims.screen.ui;
 
 import hust.soict.cyber.aims.cart.Cart;
 import hust.soict.cyber.aims.screen.controller.CartScreenController;
+import hust.soict.cyber.aims.store.Store;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +13,7 @@ import javax.swing.*;
 import java.io.IOException;
 
 public class CartScreen extends JFrame {
+    private Store store;
     private Cart cart;
 
     public CartScreen(Cart cart) {
@@ -28,7 +30,7 @@ public class CartScreen extends JFrame {
         Platform.runLater(() -> {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/hust/soict/cyber/aims/screen/fxml/cart.fxml"));
-                loader.setController(new CartScreenController(cart));
+                loader.setController(new CartScreenController(store, cart));
                 Parent root = loader.load();
                 fxPanel.setScene(new Scene(root));
             } catch (IOException e) {
