@@ -27,7 +27,7 @@
                                         <MenuItem mnemonicParsing="false" onAction="#handleAddDVD" text="Add DVD" />
                                     </items>
                                 </Menu>
-                                <MenuItem mnemonicParsing="false" text="View Store" />
+                                <MenuItem mnemonicParsing="false" text="View Store"/>
                                 <MenuItem mnemonicParsing="false" onAction="#btnViewCartPressed" text="View Cart" />
                             </items>
                         </Menu>

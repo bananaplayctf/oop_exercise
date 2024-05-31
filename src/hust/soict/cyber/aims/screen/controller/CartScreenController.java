@@ -1,6 +1,7 @@
 package hust.soict.cyber.aims.screen.controller;
 
 import hust.soict.cyber.aims.cart.Cart;
+import hust.soict.cyber.aims.exception.PlayerException;
 import hust.soict.cyber.aims.media.Media;
 import hust.soict.cyber.aims.media.Playable;
 import hust.soict.cyber.aims.store.Store;
@@ -93,7 +94,7 @@ public class CartScreenController {
     }
 
     @FXML
-    void btnPlayPressed(ActionEvent event) {
+    void btnPlayPressed(ActionEvent event) throws PlayerException {
         Media media = tblMedia.getSelectionModel().getSelectedItem();
         if (media instanceof Playable) {
             ((Playable) media).play();
@@ -139,13 +140,14 @@ public class CartScreenController {
 
     @FXML
     private void btnViewStorePressed(ActionEvent event) {
+        Stage currentStage = (Stage) tfFilter.getScene().getWindow();
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/hust/soict/cyber/aims/screen/fxml/store.fxml"));
             fxmlLoader.setController(new StoreScreenController(store, cart));
             Parent root = fxmlLoader.load();
-            Stage stage = new Stage();
+            Stage stage = currentStage;
             stage.setScene(new Scene(root));
-            stage.setTitle("Cart");
+            stage.setTitle("Store");
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

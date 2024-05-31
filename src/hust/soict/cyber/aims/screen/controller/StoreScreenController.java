@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -50,18 +51,23 @@ public class StoreScreenController {
 
     @FXML
     private void btnViewCartPressed(ActionEvent event) {
+        // Get the current stage from the GridPane
+        Stage currentStage = (Stage) gridPane.getScene().getWindow();
+
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/hust/soict/cyber/aims/screen/fxml/cart.fxml"));
             fxmlLoader.setController(new CartScreenController(store, cart));
             Parent root = fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Cart");
-            stage.show();
+            Stage newStage = currentStage;
+            newStage.setScene(new Scene(root));
+            newStage.setTitle("Cart");
+            newStage.show();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
     @FXML
     public void initialize(){

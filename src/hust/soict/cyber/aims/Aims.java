@@ -1,5 +1,6 @@
 package hust.soict.cyber.aims;
 
+import hust.soict.cyber.aims.exception.PlayerException;
 import hust.soict.cyber.aims.media.*;
 import hust.soict.cyber.aims.store.Store;
 import hust.soict.cyber.aims.cart.Cart;
@@ -17,11 +18,11 @@ public class Aims {
     private static Cart cart = new Cart();
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws PlayerException {
         showMenu();
     }
 
-    public static void showMenu() {
+    public static void showMenu() throws PlayerException {
         while (true) {
             System.out.println("AIMS: ");
             System.out.println("--------------------------------");
@@ -54,7 +55,7 @@ public class Aims {
         }
     }
 
-    public static void viewStore() {
+    public static void viewStore() throws PlayerException {
         while (true) {
             System.out.println("Store items:");
             List<Media> mediaList = store.getItemsInStore();
@@ -100,7 +101,7 @@ public class Aims {
         System.out.println("Please choose a number: 0-1-2-3-4");
     }
 
-    public static void seeMediaDetails() {
+    public static void seeMediaDetails() throws PlayerException {
         System.out.print("Enter the title of the media: ");
         String title = scanner.nextLine();
         Media media = store.findMediaByTitle(title);
@@ -118,7 +119,7 @@ public class Aims {
         }
     }
 
-    public static void mediaDetailsMenu(Media media) {
+    public static void mediaDetailsMenu(Media media) throws PlayerException {
         while (true) {
             System.out.println("Options: ");
             System.out.println("--------------------------------");
@@ -163,7 +164,7 @@ public class Aims {
         }
     }
 
-    public static void playMedia() {
+    public static void playMedia() throws PlayerException {
         System.out.print("Enter the title of the media: ");
         String title = scanner.nextLine();
         Media media = store.findMediaByTitle(title);
@@ -252,7 +253,7 @@ public class Aims {
         }
     }
 
-    public static void seeCurrentCart() {
+    public static void seeCurrentCart() throws PlayerException {
         while (true) {
             System.out.println("Current cart items:");
             List<Media> mediaList = cart.getItemsOrdered();
@@ -345,7 +346,7 @@ public class Aims {
         }
     }
 
-    public static void playMediaInCart() {
+    public static void playMediaInCart() throws PlayerException {
         System.out.print("Enter the title of the media: ");
         String title = scanner.nextLine();
         Media media = cart.findMediaByTitle(title);

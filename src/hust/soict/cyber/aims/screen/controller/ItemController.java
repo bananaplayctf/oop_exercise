@@ -1,6 +1,7 @@
 package hust.soict.cyber.aims.screen.controller;
 
 import hust.soict.cyber.aims.cart.Cart;
+import hust.soict.cyber.aims.exception.PlayerException;
 import hust.soict.cyber.aims.media.Media;
 import hust.soict.cyber.aims.media.Playable;
 import javafx.event.ActionEvent;
@@ -50,7 +51,7 @@ public class ItemController {
     }
 
     @FXML
-    void btnPlayClicked(ActionEvent event) {
+    void btnPlayClicked(ActionEvent event) throws PlayerException {
         Playable mediaPlayable = (Playable) media;
         mediaPlayable.play();
     }
