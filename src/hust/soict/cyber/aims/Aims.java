@@ -11,6 +11,8 @@ import java.util.Scanner;
 public class Aims {
     private static int nbBook = 0;
     private static int nbCD = 0;
+
+    private static int nbDVD = 0;
     private static Store store = new Store();
     private static Cart cart = new Cart();
     private static Scanner scanner = new Scanner(System.in);
@@ -219,7 +221,7 @@ public class Aims {
         if (type.equalsIgnoreCase("Book")) {
             List<String> authors = new ArrayList<>();
             authors.add(director);
-            media = new Book(nbBook, title, category, cost, authors);
+            media = new Book(nbBook, title, category, cost);
             nbBook++;
         } else if (type.equalsIgnoreCase("CD")) {
             System.out.print("Enter artist: ");
@@ -228,7 +230,7 @@ public class Aims {
             ((CompactDisc) media).addTrack(new Track("a new day", 10));
             nbCD++;
         } else if (type.equalsIgnoreCase("DVD")) {
-            media = new DigitalVideoDisc(title, category, cost, length, director);
+            media = new DigitalVideoDisc(nbDVD, title, category, cost, length, director);
         } else {
             System.out.println("Invalid media type!");
             return;

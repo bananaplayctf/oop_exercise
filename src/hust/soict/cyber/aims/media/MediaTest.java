@@ -23,10 +23,10 @@ public class MediaTest {
 
     public static void main(String[] args) {
         List<Media> mediaList = new ArrayList<>();
-        mediaList.add(new Book(1, "The Great Gatsby", "Novel", 10.99f, new ArrayList<>()));
-        mediaList.add(new Book(2, "The Great Gatsby", "Novel", 12.99f, new ArrayList<>()));
-        mediaList.add(new Book(3, "1984", "Dystopian", 8.99f, new ArrayList<>()));
-        mediaList.add(new Book(4, "Animal Farm", "Dystopian", 8.99f, new ArrayList<>()));
+        mediaList.add(new Book(1, "The Great Gatsby", "Novel", 10.99f));
+        mediaList.add(new Book(2, "The Great Gatsby", "Novel", 12.99f));
+        mediaList.add(new Book(3, "1984", "Dystopian", 8.99f));
+        mediaList.add(new Book(4, "Animal Farm", "Dystopian", 8.99f));
 
         // Sort by title and then by cost
         Collections.sort(mediaList, Media.COMPARE_BY_TITLE_COST);

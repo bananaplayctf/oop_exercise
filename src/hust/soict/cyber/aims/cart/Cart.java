@@ -1,17 +1,23 @@
 package hust.soict.cyber.aims.cart;
 
 import hust.soict.cyber.aims.media.Media;
-import java.util.ArrayList;
-import java.util.Collection;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+
 import java.util.Collections;
-import java.util.List;
 
 import static hust.soict.cyber.aims.media.Media.COMPARE_BY_COST_TITLE;
 import static hust.soict.cyber.aims.media.Media.COMPARE_BY_TITLE_COST;
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
-    private ArrayList<Media> itemsOrdered = new ArrayList<>();
+    private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
+    private FilteredList<Media> filteredItems;
+
+    public Cart() {
+        filteredItems = new FilteredList<>(itemsOrdered, p -> true);
+    }
 
     public void addMedia(Media media) {
         if (itemsOrdered.size() < MAX_NUMBERS_ORDERED) {
@@ -77,36 +83,12 @@ public class Cart {
         }
     }
 
-    public List<Media> getItemsOrdered() {
+    public ObservableList<Media> getItemsOrdered() {
         return itemsOrdered;
     }
 
-    public void filterById(int id) {
-        System.out.println("Filtered Items (by ID " + id + "):");
-        boolean found = false;
-        for (Media media : itemsOrdered) {
-            if (media.getId() == id) {
-                found = true;
-                System.out.println(media);
-            }
-        }
-        if (!found) {
-            System.out.println("No match found for ID: " + id);
-        }
-    }
-
-    public void filterByTitle(String title) {
-        System.out.println("Filtered Items (by Title '" + title + "'):");
-        boolean found = false;
-        for (Media media : itemsOrdered) {
-            if (media.getTitle().equalsIgnoreCase(title)) {
-                found = true;
-                System.out.println(media);
-            }
-        }
-        if (!found) {
-            System.out.println("No match found for Title: " + title);
-        }
+    public FilteredList<Media> getFilteredItems() {
+        return filteredItems;
     }
 
     public void sortByTitle() {
@@ -126,5 +108,18 @@ public class Cart {
             }
         }
         return null;
+    }
+
+    public void filterById(int id) {
+        filteredItems.setPredicate(media -> media.getId() == id);
+    }
+
+    public void filterByTitle(String title) {
+        filteredItems.setPredicate(media -> media.getTitle().equalsIgnoreCase(title));
+    }
+
+    public void clear() {
+        itemsOrdered.clear();
+        System.out.println("Cart cleared.");
     }
 }
